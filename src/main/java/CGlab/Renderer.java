@@ -95,6 +95,26 @@ public class Renderer {
             plotLineHigh(x0, y0, x1, y1);
     }
 
+    public void drawTriangle(Vec2i A, Vec2i B, Vec2i C, int color) {
+
+        int min_x = (int)Math.min(Math.min(A.x, B.x), C.x);
+        int min_y = (int)Math.min(Math.min(A.y, B.y), C.y);
+        int max_x = (int)Math.max(Math.max(A.x, B.x), C.x);
+        int max_y = (int)Math.max(Math.max(A.y, B.y), C.y);
+
+        for (int x = min_x; x <= max_x; x++) {
+            for (int y = min_y; y <= max_y; y++) {
+                Vec3f bar = barycentric(A, B, C, new Vec2i(x, y));
+
+                //malujemy
+                if(bar.x >= 0 && bar.y >= 0 && bar.z >= 0 && bar.x <= 1 && bar.y <= 1 && bar.z <= 1) {
+                    this.render.setRGB(x, y, color);
+
+                }
+            }
+        }
+    }
+
     private void plotLineLow(int x0, int y0, int x1, int y1) {
         int white = 255 | (255 << 8) | (255 << 16) | (255 << 24);
 
@@ -184,6 +204,29 @@ public class Renderer {
         float c = v1.x*v2.y - v1.y*v2.x;
 
         Vec3f ilo = new Vec3f(a,b,c);
+        return ilo;
+    }
+
+    public Vec3f barycentric(Vec2i A, Vec2i B, Vec2i C, Vec2i P) {
+        Vec3f v1 = new Vec3f(B.x - A.x, C.x - A.x, A.x - P.x);
+
+        Vec3f v2 = new Vec3f(B.y - A.y, C.y - A.y, A.y - P.y);
+
+        Vec3f cross = cross(v1, v2);
+
+        Vec2f uv = new Vec2f((cross.x/cross.z), (cross.y/cross.z));
+
+
+        Vec3f barycentric = new Vec3f(uv.x, uv.y, (1 - uv.x - uv.y));
+        return barycentric;
+    }
+
+    private Vec3i cross(Vec3i v1, Vec3i v2) {
+        int a = v1.y*v2.z - v1.z*v2.y;
+        int b = v1.z*v2.x - v1.x*v2.z;
+        int c = v1.x*v2.y - v1.y*v2.x;
+
+        Vec3i ilo = new Vec3i(a,b,c);
         return ilo;
     }
 
