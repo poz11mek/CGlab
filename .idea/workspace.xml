@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa318333-b0ef-4606-85d0-e480a6237f47" name="Changes" comment="#0">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGlab/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGlab/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGlab/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGlab/Renderer.java" afterDir="false" />
-    </list>
+    <list default="true" id="fa318333-b0ef-4606-85d0-e480a6237f47" name="Changes" comment="zad.1 i zad.2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +72,7 @@
       <workItem from="1655675997568" duration="539000" />
       <workItem from="1655755072714" duration="14000" />
       <workItem from="1655834232250" duration="1587000" />
-      <workItem from="1655835844809" duration="327000" />
+      <workItem from="1655835844809" duration="657000" />
     </task>
     <task id="LOCAL-00001" summary="#0">
       <created>1655676398185</created>
@@ -87,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655676398185</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="zad.1 i zad.2">
+      <created>1655836439301</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1655836439301</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,7 +108,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="#0" />
-    <option name="LAST_COMMIT_MESSAGE" value="#0" />
+    <MESSAGE value="zad.1 i zad.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="zad.1 i zad.2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
