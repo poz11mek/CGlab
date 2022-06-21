@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa318333-b0ef-4606-85d0-e480a6237f47" name="Changes" comment="zad.1, 2, 3">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGlab/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGlab/App.java" afterDir="false" />
+    <list default="true" id="fa318333-b0ef-4606-85d0-e480a6237f47" name="Changes" comment="zad.4">
       <change beforePath="$PROJECT_DIR$/src/main/java/CGlab/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGlab/Renderer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +74,7 @@
       <workItem from="1655675997568" duration="539000" />
       <workItem from="1655755072714" duration="14000" />
       <workItem from="1655834232250" duration="1587000" />
-      <workItem from="1655835844809" duration="1207000" />
+      <workItem from="1655835844809" duration="1550000" />
     </task>
     <task id="LOCAL-00001" summary="#0">
       <created>1655676398185</created>
@@ -99,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655836626854</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="zad.4">
+      <created>1655837282676</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1655837282676</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,7 +126,8 @@
     <MESSAGE value="#0" />
     <MESSAGE value="zad.1 i zad.2" />
     <MESSAGE value="zad.1, 2, 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="zad.1, 2, 3" />
+    <MESSAGE value="zad.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="zad.4" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
