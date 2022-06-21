@@ -164,6 +164,29 @@ public class Renderer {
         }
     }
 
+    public Vec3f barycentric(Vec2f A, Vec2f B, Vec2f C, Vec2f P) {
+        Vec3f v1 = new Vec3f(B.x - A.x, C.x - A.x, A.x - P.x);
+
+        Vec3f v2 = new Vec3f(B.y - A.y, C.y - A.y, A.y - P.y);
+
+        Vec3f cross = cross(v1, v2);
+
+        Vec2f uv = new Vec2f((cross.x/cross.z), (cross.y/cross.z));
+
+        //
+        Vec3f barycentric = new Vec3f(uv.x, uv.y, (1 - uv.x - uv.y));
+        return barycentric;
+    }
+
+    private Vec3f cross(Vec3f v1, Vec3f v2) {
+        float a = v1.y*v2.z - v1.z*v2.y;
+        float b = v1.z*v2.x - v1.x*v2.z;
+        float c = v1.x*v2.y - v1.y*v2.x;
+
+        Vec3f ilo = new Vec3f(a,b,c);
+        return ilo;
+    }
+
 
 
     public static BufferedImage verticalFlip(BufferedImage img) {
