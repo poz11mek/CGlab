@@ -123,7 +123,7 @@ public class Renderer {
     }
 
     private void plotLineHigh(int x0, int y0, int x1, int y1) {
-        int white = 255 | (255 << 8) | (255 << 16) | (255 << 24);
+        int whiteC = 255 | (255 << 8) | (255 << 16) | (255 << 24);
 
         int xi, err, x, y;
         int dx = x1-x0;
@@ -139,7 +139,7 @@ public class Renderer {
         x = x0;
 
         for (y = y0; y < y1; y++) {
-            render.setRGB(x, y, white);
+            render.setRGB(x, y, whiteC);
             if(err>0) {
                 x += xi;
                 err = err + (2*(dx-dy));
