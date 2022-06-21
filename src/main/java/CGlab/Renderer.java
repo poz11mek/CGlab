@@ -1,7 +1,7 @@
 package CGlab;
 
 
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 public class Renderer {
 
-    public enum LineAlgo { NAIVE, DDA, BRESENHAM, BRESENHAM_INT; }
+    public enum LineAlgo { NAIVE, BRESENHAM, BRESENHAM_INT; }
 
     private BufferedImage render;
     public final int h = 200;
@@ -23,6 +23,12 @@ public class Renderer {
         this.filename = filename;
     }
 
+    public Renderer(String filename, int w, int h, LineAlgo l) {
+        render = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        this.filename = filename;
+        this.lineAlgo = l;
+    }
+
     public void drawPoint(int x, int y) {
         int white = 255 | (255 << 8) | (255 << 16) | (255 << 24);
         render.setRGB(x, y, white);
@@ -30,17 +36,28 @@ public class Renderer {
 
     public void drawLine(int x0, int y0, int x1, int y1, LineAlgo lineAlgo) {
         if(lineAlgo == LineAlgo.NAIVE) drawLineNaive(x0, y0, x1, y1);
-        if(lineAlgo == LineAlgo.DDA) drawLineDDA(x0, y0, x1, y1);
         if(lineAlgo == LineAlgo.BRESENHAM) drawLineBresenham(x0, y0, x1, y1);
         if(lineAlgo == LineAlgo.BRESENHAM_INT) drawLineBresenhamInt(x0, y0, x1, y1);
     }
 
     public void drawLineNaive(int x0, int y0, int x1, int y1) {
-        // TODO: zaimplementuj
-    }
+        int color = 255 | (255<<8) | (255<<16) | (0);
 
-    public void drawLineDDA(int x0, int y0, int x1, int y1) {
-        // TODO: zaimplementuj
+        int wsp_a = (y1 - y0) / (x1 - x0);
+
+        if(Math.abs(wsp_a) <= 1) {
+            int y = y0;
+            for (int x = x0; x <= x1; x++) {
+                render.setRGB(x, Math.round(y), color);
+                y += wsp_a;
+            }
+        } else {
+            int x = x0;
+            for (int y = y0; y <= y1; y++) {
+                render.setRGB(Math.round(x), y, color);
+                x += (1/wsp_a);
+            }
+        }
     }
 
     public void drawLineBresenham(int x0, int y0, int x1, int y1) {
