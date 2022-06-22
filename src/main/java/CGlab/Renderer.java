@@ -15,8 +15,6 @@ public class Renderer {
     public final int h = 200;
     public final int w = 200;
 
-    float[][] buf;
-
     private String filename;
     private LineAlgo lineAlgo = LineAlgo.NAIVE;
 
@@ -97,10 +95,16 @@ public class Renderer {
             plotLineHigh(x0, y0, x1, y1);
     }
 
-    public void drawTriangle(Vec2i A, Vec2i B, Vec2i C, float z1, float z2, float z3, Color color) {
+    public void drawTriangle(Vec2f A, Vec2f B, Vec2f C, Vec3i color) {
         // dla każdego punktu obrazu this.render:
         //      oblicz współrzędne baryc.
         //      jeśli punkt leży wewnątrz, zamaluj (patrz wykład)
+        int col;
+
+        if(color.x >=0 && color.x <=255 && color.y>=0 && color.y<=255 && color.z>=0 && color.z<=255)
+            col = 255 | (color.x << 8) | (color.y << 16) | (color.z << 24);
+        else
+            col = 255 | (255 << 8) | (255 << 16) | (255 << 24);
 
         int min_x = (int)Math.min(Math.min(A.x, B.x), C.x);
         int min_y = (int)Math.min(Math.min(A.y, B.y), C.y);
@@ -109,17 +113,11 @@ public class Renderer {
 
         for (int x = min_x; x <= max_x; x++) {
             for (int y = min_y; y <= max_y; y++) {
-                Vec2i P = new Vec2i(x, y);
-                Vec3f bar = barycentric(A, B, C, P);
+                Vec3f bar = barycentric(A, B, C, new Vec2f(x, y));
 
                 //malujemy
                 if(bar.x >= 0 && bar.y >= 0 && bar.z >= 0 && bar.x <= 1 && bar.y <= 1 && bar.z <= 1) {
-                    float z = z1 + ((z2-z1) * bar.x) + ((z3-z1) * bar.y);
-                    //System.out.println("z = " + z + ", zbuf = " + zbuf[x][y]);
-                    if(buf[x][y] < z) {
-                        render.setRGB(x, y, color.getRGB());
-                        buf[x][y] = z;
-                    }
+                    this.render.setRGB(x, y, col);
                 }
             }
         }
