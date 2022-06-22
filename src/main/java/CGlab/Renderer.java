@@ -11,18 +11,34 @@ public class Renderer {
 
     public enum LineAlgo { NAIVE, BRESENHAM, BRESENHAM_INT; }
 
-    private BufferedImage render;
+    public BufferedImage render;
     public final int h = 200;
     public final int w = 200;
 
+    float[][] zbuf;
+    
     private String filename;
     private LineAlgo lineAlgo = LineAlgo.NAIVE;
+
+    public Renderer() {
+    }
 
     public Renderer(String filename) {
         render = new BufferedImage(200, 200, BufferedImage.TYPE_INT_ARGB);
         this.filename = filename;
     }
 
+    public Renderer(String filename, int w, int h) {
+        render = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        this.filename = filename;
+        zbuf = new float[w][h];
+
+        for (int i = 0; i < w; i++) {
+            for (int j = 0; j < h; j++) {
+                zbuf[i][j] = Float.NEGATIVE_INFINITY;
+            }
+        }
+    }
     public Renderer(String filename, int w, int h, LineAlgo l) {
         render = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
         this.filename = filename;
