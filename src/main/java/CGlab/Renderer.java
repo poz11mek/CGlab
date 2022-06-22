@@ -115,7 +115,6 @@ public class Renderer {
             for (int y = min_y; y <= max_y; y++) {
                 Vec3f bar = barycentric(A, B, C, new Vec2f(x, y));
 
-                //malujemy
                 if(bar.x >= 0 && bar.y >= 0 && bar.z >= 0 && bar.x <= 1 && bar.y <= 1 && bar.z <= 1) {
                     this.render.setRGB(x, y, col);
                 }
